@@ -1,0 +1,15 @@
+Running Spark using the REST application submission protocol.
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+17/12/05 02:34:45 INFO RestSubmissionClient: Submitting a request to launch an application in spark://Toms-MacBook-Pro.local:6066.
+17/12/05 02:34:46 INFO RestSubmissionClient: Submission successfully created as driver-20171205023446-0001. Polling submission state...
+17/12/05 02:34:46 INFO RestSubmissionClient: Submitting a request for the status of submission driver-20171205023446-0001 in spark://Toms-MacBook-Pro.local:6066.
+17/12/05 02:34:46 INFO RestSubmissionClient: State of driver driver-20171205023446-0001 is now RUNNING.
+17/12/05 02:34:46 INFO RestSubmissionClient: Driver is running on worker worker-20171205023234-192.168.1.4-63497 at 192.168.1.4:63497.
+17/12/05 02:34:46 INFO RestSubmissionClient: Server responded with CreateSubmissionResponse:
+{
+  "action" : "CreateSubmissionResponse",
+  "message" : "Driver successfully submitted as driver-20171205023446-0001",
+  "serverSparkVersion" : "2.2.0",
+  "submissionId" : "driver-20171205023446-0001",
+  "success" : true
+}
