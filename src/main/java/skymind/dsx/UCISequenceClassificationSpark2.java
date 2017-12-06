@@ -216,7 +216,9 @@ public class UCISequenceClassificationSpark2 {
 
             //Evaluate on the test set:
 
-            Evaluation evaluation = sparkNet.evaluate(testData);
+            //Evaluation evaluation = sparkNet.evaluate(testData);
+            Evaluation evaluation = sparkNet.doEvaluation(testData, 10, new Evaluation(6))[0];
+
             log.info(String.format(str, i, evaluation.accuracy(), evaluation.f1()));
 
             testDataiter.reset();
