@@ -23,16 +23,12 @@ import org.nd4j.linalg.dataset.api.preprocessor.NormalizerStandardize;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 
-/**
- * Hello world!
- *
- */
-public class App
+
+public class IrisClassifier
 {
-    private static Logger log = LoggerFactory.getLogger(App.class);
+    private static Logger log = LoggerFactory.getLogger(IrisClassifier.class);
 
     public static void main( String[] args ) throws Exception {
         BasicConfigurator.configure();

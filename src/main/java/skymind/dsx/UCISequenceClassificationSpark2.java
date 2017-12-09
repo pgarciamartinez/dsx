@@ -50,8 +50,8 @@ public class UCISequenceClassificationSpark2 {
     public static void main(String[] args) throws Exception {
         BasicConfigurator.configure();
 
-        int batchSizePerWorker = 16;
-        int numEpochs = 10;
+        int batchSizePerWorker = 20;
+        int numEpochs = 20;
 
         SparkConf sparkConf = new SparkConf();
         sparkConf.setAppName("DL4J Spark RNN Example");
