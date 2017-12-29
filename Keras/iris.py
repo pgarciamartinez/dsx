@@ -53,7 +53,7 @@ model.save_weights('/tmp/iris_model_weights')
 
 # To save the weights and the config
 # Note this is what is used for this demo
-model.save('/tmp/full_iris_model')
+model.save('/tmp/Keras_export_full_iris_model')
 
 # To save the Json config to a file
 json_string = model.to_json()
