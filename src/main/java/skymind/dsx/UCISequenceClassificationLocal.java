@@ -40,25 +40,9 @@ public class UCISequenceClassificationLocal {
     public static void main(String[] args) throws Exception {
         BasicConfigurator.configure();
 
-        /*
-            STEP I.
-            Download and write the data in a suitable format into csv files
-                - separate files for features and labels
-                - separate directories for train and test (a 75:25 split)
-                Use for future reference: https://deeplearning4j.org/usingrnns#data
-         */
-
-        //UCIData.download();
-
-        /*
-            STEP II. Set up training Data
-            Load the training data using csv record readers. Specify a minibatch size for the record reader.
-            Note that we have 450 training files for features: train/features/0.csv through train/features/449.csv
-            For future reference on csv record readers refer to the CSV record reader examples in the dl4j-examples repo
-         */
 
         SequenceRecordReader trainFeatures = new CSVSequenceRecordReader();
-        //trainrecordReader.initialize(new FileSplit(new File("iris_train.txt")));
+
 
         trainFeatures.initialize(new NumberedFileInputSplit(new File("uci/train/features").getAbsolutePath().toString() + "/%d.csv", 0, 449));
         //trainFeatures.initialize(new NumberedFileInputSplit(new F, 0, 449));
@@ -97,6 +81,10 @@ public class UCISequenceClassificationLocal {
         testData.setPreProcessor(normalizer);
         DataSet tom = testData.next();
         System.out.println(tom.getFeatures());
+        System.out.println("################");
+        System.out.println(tom.getFeatures().shapeInfoToString());
+
+        System.out.println("################");
         /*
             STEP V.
             Configure the network and initialize it

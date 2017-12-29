@@ -57,6 +57,11 @@
       <artifactId>dl4j-spark-parameterserver_${scala.binary.version}</artifactId>
       <version>${dl4j.spark.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.deeplearning4j</groupId>
+      <artifactId>deeplearning4j-modelimport</artifactId>
+      <version>0.9.0</version>
+    </dependency>
   </dependencies>
 
 

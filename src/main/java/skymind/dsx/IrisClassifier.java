@@ -32,11 +32,17 @@ public class IrisClassifier
 
     public static void main( String[] args ) throws Exception {
         BasicConfigurator.configure();
-        //First: get the dataset using the record reader. CSVRecordReader handles loading/parsing
+
+        // The Data has no header, and is comma delimited
+        // Set appropriate parameters
         int numLinesToSkip = 0;
         char delimiter = ',';
+
+
+        // First: get the dataset using the record reader. CSVRecordReader handles loading/parsing
         RecordReader recordReader = new CSVRecordReader(numLinesToSkip,delimiter);
-        //recordReader.initialize(new FileSplit(new ClassPathResource("iris.txt").getFile()));
+
+        // initialize the recordreader with a path to our data file
         recordReader.initialize(new FileSplit(new File("iris.txt")));
 
         //Second: the RecordReaderDataSetIterator handles conversion to DataSet objects, ready for use in neural network
@@ -45,8 +51,14 @@ public class IrisClassifier
         int batchSize = 150;    //Iris data set: 150 examples total. We are loading all of them into one DataSet (not recommended for large data sets)
 
         DataSetIterator iterator = new RecordReaderDataSetIterator(recordReader,batchSize,labelIndex,numClasses);
+
+        // Load all the data into a DataSet
         DataSet allData = iterator.next();
+
+        // Shuffle the data
         allData.shuffle();
+
+        // Split into Test set and Training Set
         SplitTestAndTrain testAndTrain = allData.splitTestAndTrain(0.65);  //Use 65% of data for training
 
         DataSet trainingData = testAndTrain.getTrain();
@@ -59,11 +71,13 @@ public class IrisClassifier
         normalizer.transform(testData);         //Apply normalization to the test data. This is using statistics calculated from the *training* set
 
 
-        final int numInputs = 4;
-        int outputNum = 3;
-        int iterations = 1000;
-        long seed = 6;
+        final int numInputs = 4; // number of features determines number of neurons in input layer
+        int outputNum = 3; // determines number of neurons in output layer
+        int iterations = 1000; // how many updates to weights to perform
+        long seed = 6; // set random seed for reproducible results
 
+
+        // Build a Neural Network
 
         log.info("Build model....");
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
