@@ -34,8 +34,7 @@ public class MultiVariateTimeSeriesPrediction {
         INDArray output = model.output(input);
         System.out.println("######## OUTPUT #########");
         System.out.println(output);
-        System.out.println("***** my shape *****");
-        System.out.println(input.shapeInfoToString());
+        
 
     }
 }
