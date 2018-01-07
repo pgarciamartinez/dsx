@@ -20,14 +20,12 @@ public class KerasModelImportExample {
 
         //Path to Saved Model and weights
 
-        //String kerasModelfromKerasExport = new ClassPathResource("Keras/full_iris_model").getFile().getPath();
 
         String kerasModelfromKerasExport = "Keras_export_full_iris_model";
         /*
         Create a MultiLayerNetwork from the saved model
          */
 
-        // MultiLayerNetwork model = org.deeplearning4j.nn.modelimport.keras.KerasModelImport.importKerasSequentialModelAndWeights(kerasModelfromKerasExport);
 
         MultiLayerNetwork model = KerasModelImport.importKerasSequentialModelAndWeights(kerasModelfromKerasExport);
         /*
