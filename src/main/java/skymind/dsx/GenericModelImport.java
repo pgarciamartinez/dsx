@@ -16,7 +16,7 @@ public class GenericModelImport {
 
 
 
-        String kerasModelfromKerasExport = "Keras_export_full_iris_model";
+        String kerasModelfromKerasExport = "MyModel.h5";
 
 
         MultiLayerNetwork model = KerasModelImport.importKerasSequentialModelAndWeights(kerasModelfromKerasExport);
